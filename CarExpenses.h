@@ -12,7 +12,9 @@ int calculateCarExpenses(struct trip trip)
 
     // if taxi, ask for taxi fee
     //// (let user know that <=$10 will be paid back)
+
     // costs = taxi fee
+    // return costs
 
     return costs;
 }
