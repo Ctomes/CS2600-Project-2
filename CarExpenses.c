@@ -10,7 +10,7 @@ float calculateCarExpenses()
 
     do
     {
-        printf("Please enter the vehicle type");
+        printf("Please enter the vehicle type. (enter end to stop): ");
         scanf("%s", vehicleType);
 
         if (vehicleType == "Private")
