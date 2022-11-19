@@ -35,15 +35,11 @@ int privateCar()
     int cost = 0;
 
     // fee for mileage
-    float milesDriven;
-    printf("Miles driven: ");
-    scanf("%f", &milesDriven);
+    float milesDriven = getValidFloat("Miles driven: ");
     cost += milesDriven * 27;
 
     // parking (max $6)
-    float parkingFee;
-    printf("Parking fee (only up to $6 will be reimbursed.): ");
-    scanf("%f", &parkingFee);
+    float parkingFee = getValidFloat("Parking fee (only up to $6 will be reimbursed.): ");
 
     if (parkingFee > 6)
     {
@@ -56,9 +52,7 @@ int privateCar()
 
 int taxi()
 {
-    float taxiFee;
-    printf("Total taxi fee (only up to $10 will be reimbursed.): ");
-    scanf("%f", &taxiFee);
+    float taxiFee = getValidFloat("Total taxi fee (only up to $10 will be reimbursed.): ");
 
     if (taxiFee > 10)
     {
@@ -70,9 +64,20 @@ int taxi()
 
 int rental()
 {
-    float rentalFee;
-    printf("Rental fee: ");
-    scanf("%f", &rentalFee);
+    float rentalFee = getValidFloat("Rental fee: ");
 
     return rentalFee * 100;
+}
+
+float getValidFloat(char msg[])
+{
+    float valid;
+
+    do
+    {
+        printf(msg);
+        scanf("%f", valid);
+    } while (valid < 0);
+
+    return valid;
 }
