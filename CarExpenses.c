@@ -3,12 +3,16 @@
 #include "CarExpenses.h"
 
 // all calculations done in cents to avoid floating point imprecisions
-float calculateCarExpenses(char vehicleType[])
+float calculateCarExpenses()
 {
     int costs = 0;
+    char vehicleType[10];
 
-    while (true)
+    do
     {
+        printf("Please enter the vehicle type");
+        scanf("%s", vehicleType);
+
         if (vehicleType == "Private")
         {
             costs += privateCar();
@@ -21,11 +25,7 @@ float calculateCarExpenses(char vehicleType[])
         {
             costs += rental();
         }
-        else
-        {
-            break;
-        }
-    }
+    } while (vehicleType != "end");
 
     return costs / 100;
 }
@@ -57,7 +57,7 @@ int privateCar()
 int taxi()
 {
     float taxiFee;
-    printf("Total taxi fee: ");
+    printf("Total taxi fee (only up to $10 will be reimbursed.): ");
     scanf("%f", &taxiFee);
 
     if (taxiFee > 10)

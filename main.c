@@ -1,9 +1,9 @@
 
-//Tomes, Chris
+// Tomes, Chris
 
-//main.c
+// main.c
 /*
-Travel Expensese program. 
+Travel Expensese program.
 
 main will be responsible for receiving user input and passing it off to help functions located in associated files.
 
@@ -16,10 +16,12 @@ typedef struct trip {
     float timeOfArrival;
     float airfare;
 
-    float rentalCost;
-    int milesDrivenInPrivateCar;
-    float parkingFees;
-    float taxiFees;
+    (not needed here)
+        car vehicleType;
+        float rentalCost;
+        int milesDrivenInPrivateCar;
+        float parkingFees;
+        float taxiFees;
 
     float conferenceFees;
     float hotelFees;
@@ -29,7 +31,7 @@ typedef struct trip {
 } trip;
 
 THE QUESTIONS:
-  
+
 PERSON 1.
 --------
 Ask user for total number of days spent on trip?
@@ -38,7 +40,7 @@ Ask user for time of departure on the first day of the trip AND time of arrival 
 
 Ask for round trip airfare?
 
-int calculateFlightExpenses(struct trip trip); pass a struct trip to function; should validate above input and store it. 
+int calculateFlightExpenses(struct trip trip); pass a struct trip to function; should validate above input and store it.
 
 PERSON 2.
 Ask for cost of car rentals?
@@ -46,13 +48,13 @@ Ask for cost of car rentals?
 Private Vehicle used?
     -How many miles? expense =  .27$ per mile.
 
-Parking fees?
-    only permit $6 per day.
+    Parking fees?
+        only permit $6 per day.
 
 Taxi fees?
     only permit $10 per day.
 
-int calculateCarExpenses(struct trip trip); pass a struct trip to function; should validate above input and store it. 
+int calculateCarExpenses(struct trip trip); pass a struct trip to function; should validate above input and store it.
 
 Person 3.
 Conference/Seminar registration fees?
@@ -91,7 +93,6 @@ Input Validation:
 */
 
 #include <stdio.h>
-
 
 int main()
 {

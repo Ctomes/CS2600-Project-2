@@ -1,1 +1,1 @@
-float calculateCarExpenses(char vehicleType[]);
+float calculateCarExpenses();
