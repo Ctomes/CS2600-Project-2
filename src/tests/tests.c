@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "../CarExpenses.h"
+#include "../../header/CarExpenses/CarExpenses.h"
 
 void getValidFloatTest()
 {
@@ -35,7 +35,7 @@ void rentalTest()
 
 void calculateCarExpensesTest()
 {
-    printf("The central calculation function should use input validation and correctly sum the costs of all vehicle types of the trip.\n\n");
+    printf("The central calculation function should use input validation and correctly sum the costs of all vehicle types of the trip.\n");
     float total = calculateCarExpenses();
 
     printf("\nTotal expenses of that trip: $%.2f\n\n", total);
