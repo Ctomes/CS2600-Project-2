@@ -22,4 +22,6 @@ typedef struct Trip {
 
 // function prototype list
 int calculateConferenceExpenses(struct Trip trip);
-double getConferenceFee(struct Trip* tripPointer);
+void getConferenceFees(struct Trip* tripPointer);
+void getHotelFees(struct Trip* tripPointer);
+void getMealFees(struct Trip* tripPointer);
