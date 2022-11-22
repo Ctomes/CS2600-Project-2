@@ -8,7 +8,7 @@
 
 */
 #include <stdio.h>
-#include "conferenceFee.h"
+#include "trip.h" 
 
 
 void calculateConferenceExpenses(struct Trip* tripPointer) 
