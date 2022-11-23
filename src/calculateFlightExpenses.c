@@ -4,7 +4,7 @@
 
 // declare the struct
 struct flightExpenses flight;
-struct Trip Trip;
+struct Trip trip;
 // this function will ask the user for input and then will return the user input
 int userInput(){
     //this section will ask the user for number of days on trip;
@@ -55,10 +55,10 @@ int checkInput(int days, float arrival, float departure, float airfareCost){
 
 // this function will update the trip.h file values 
 void updateValues(){
-    Trip.daysSpentOnTrip = flight.days;
-    Trip.timeOfDeparture = flight.departure;
-    Trip.timeOfArrival = flight.arrival;
-    Trip.airfare = flight.airfareCost;
+    trip.daysSpentOnTrip = flight.days;
+    trip.timeOfDeparture = flight.departure;
+    trip.timeOfArrival = flight.arrival;
+    trip.airfare = flight.airfareCost;
 }
 
 
