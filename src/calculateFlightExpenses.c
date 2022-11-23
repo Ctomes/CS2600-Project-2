@@ -1,9 +1,10 @@
-//#include <../header/trip.h>
+#include "../header/trip.h"
 #include "../header/flightExpenses.h"
 #include <stdio.h>
 
 // declare the struct
 struct flightExpenses flight;
+struct Trip Trip;
 // this function will ask the user for input and then will return the user input
 int userInput(){
     //this section will ask the user for number of days on trip;
@@ -22,6 +23,8 @@ int userInput(){
     printf("at what time did your plane arrive(must use 24 hour format ex: 4:15 pm would 16.15) :");
     scanf("%f",&flight.arrival);
     printf("\n");
+
+
     return 0;
 } // userInput, will get the user input and update the struct from the header filee...
 
@@ -50,6 +53,15 @@ int checkInput(int days, float arrival, float departure, float airfareCost){
 
 
 
+// this function will update the trip.h file values 
+void updateValues(){
+    Trip.daysSpentOnTrip = flight.days;
+    Trip.timeOfDeparture = flight.departure;
+    Trip.timeOfArrival = flight.arrival;
+    Trip.airfare = flight.airfareCost;
+}
+
+
 int main(){
     //must update four variable
     // days spent on trip
@@ -63,21 +75,29 @@ int main(){
     // note the time of departure and arrival are going to be in 24h format
     
     // this will declare the struct with the variables we need
-    struct flightExpenses flight;
-
+    int loopStatus = 0;
     //some testing variables
-    int input_days = 6;
-    float input_arrival = 13.4;
-    float input_departure = 17.5;
-    float input_airfareCost = -240;
+    int input_days = flight.days;
+    float input_arrival = flight.arrival;
+    float input_departure = flight.departure;
+    float input_airfareCost = flight.airfareCost;
     userInput();
-    /*if(checkInput(input_days,input_arrival,input_departure,input_airfareCost)==1){
-        printf("hello");
+    printf("days is:%d\n",flight.days);
+    printf("arrival is:%f\n",flight.arrival);
+    printf("departure is:%f\n",flight.departure);
+    printf("airfareCost is:%f\n",flight.airfareCost);
+    if(checkInput(flight.days,flight.arrival,flight.departure,flight.airfareCost)==1){
+        printf("good input");
+        updateValues();
     }
     else {
         printf("error: invalid input detected.\n");
         printf("Please enter valid input again.\n\n");
-    }*/
+        main();
+        
+    }
+
+    
     
 
     return 0;
