@@ -16,19 +16,30 @@ void calculateConferenceExpenses(struct Trip* tripPointer)
 {
     // This function will calculate the total conference expenses
     // conference/seminar fee + hotel expenses
-    getConferenceFees(tripPointer);
-    getHotelFees(tripPointer);
-    getMealFees(tripPointer);
+
+    // assume business will pay conference fees.
+    tripPointer->conferenceFees = 0; 
+
+
+    // loop while daysSpentOnTrip
+    for(int i = 0; i < tripPointer->daysSpentOnTrip; i++)
+    {
+        getConferenceFees(tripPointer);
+        getHotelFees(tripPointer);
+        getMealFees(tripPointer);
+    }
 
 }
 
 void getConferenceFees(struct Trip* tripPointer)
 {
     // This function will prompt and return the user input of conference fee
+    // conference fee limit was not specified, Assume business will pay everything. 
+    // So conferenceFee by employee is $0, all fees under business. 
     double fee; 
     printf("Please enter conference fee: $"); 
     scanf("%f", &fee);
-    tripPointer.conferenceFees = fee; 
+    tripPointer->conferenceFeesAllowable += fee; 
 }
 
 void getHotelFees(struct Trip* tripPoniter)
