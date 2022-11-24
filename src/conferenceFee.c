@@ -10,6 +10,7 @@
 */
 #include <stdio.h>
 #include "../header/trip.h" 
+#include "../header/conferenceFee.h"
 
 
 // global variables
