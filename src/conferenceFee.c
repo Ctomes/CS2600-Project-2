@@ -74,7 +74,7 @@ void getHotelFees(struct Trip* tripPoniter)
         // so amount employee pay is none
         // and so allowable is the feeEachDay
         tripPoniter->hotelFees += feeEachDay;
-        tripPoniter->hotelFeesAllowable =+ feeEachDay;
+        tripPoniter->hotelFeesAllowable += feeEachDay;
     }
 
 
