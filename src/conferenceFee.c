@@ -11,6 +11,17 @@
 #include <stdio.h>
 #include "../header/trip.h" 
 #include "../header/conferenceFee.h"
+//#include "../header/flightExpenses.h"
+
+
+// This struct is from dany's
+struct flightExpenses(){
+    int days;
+    float arrival;
+    float departure;
+    float airfareCost;
+};
+
 
 
 // global variables
@@ -82,6 +93,55 @@ void getHotelFees(struct Trip* tripPoniter)
 
 void getMealFees(struct Trip* tripPointer)
 {
-    // apporach to this function will be similar to getHotelFees()
+    // This function will use struct flightExpenses.h from dany's but will not modify
+
+    // days will be in base 1
+
+    // variables
+    float exceedAmount, each;
+    struct flightExpenses flightInfo;
+
+    for(int i = 0; i < )
+    {
+        if(i == 0)
+        {
+            // when it is first day
+        }
+        else if(i == (flightInfo.days - 1))
+        {
+            // when it is last day
+        }
+        else
+        {
+            // when it is not first or last day
+            // prompt the user for breakfast, lunch, and dinner 
+            
+            // breakfast
+            printf("Please enter the cost of breakfast: $ ");
+            scanf("%f", &each);
+            if(each > 9.0)
+            {
+                // when breakfast fee exceed allowable
+                tripPointer->mealFees += each;
+                tripPointer->mealFeesAllowable += 9.0;
+                exceedAmount = each - 9.0; 
+            } 
+            else
+            {
+                tripPointer->mealFeesAllowable += each; 
+                tripPointer->mealFees += each; 
+            }
+
+            // lunch
+
+
+            // dinner
+        }
+
+
+    }
+
+
+
 
 }
