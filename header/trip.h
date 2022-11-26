@@ -10,11 +10,16 @@ typedef struct Trip {
     float rentalCost;
     int milesDrivenInPrivateCar;
     float parkingFees;
+    float parkingFeesAllowable;
     float taxiFees;
+    float taxiFeesAllowable;
 
     float conferenceFees;
+    float conferenceFeesAllowable;
     float hotelFees;
+    float hotelFeesAllowable;
     float mealFees;
+    float mealFeesAllowable; //never higher than $16 + $16
 
 
 } Trip;
