@@ -99,9 +99,9 @@ void getMealFees(struct Trip* tripPointer)
 
     // variables
     float exceedAmount, each;
-    struct flightExpenses flightInfo;
+    struct flightExpenses *flightInfo;
 
-    for(int i = 0; i < )
+    for(int i = 0; i < flightInfo->days; i++)
     {
         if(i == 0)
         {
@@ -117,14 +117,14 @@ void getMealFees(struct Trip* tripPointer)
             // prompt the user for breakfast, lunch, and dinner 
             
             // breakfast
-            printf("Please enter the cost of breakfast: $ ");
+            printf("Please enter the cost of breakfast: $");
             scanf("%f", &each);
             if(each > 9.0)
             {
                 // when breakfast fee exceed allowable
                 tripPointer->mealFees += each;
                 tripPointer->mealFeesAllowable += 9.0;
-                exceedAmount = each - 9.0; 
+                exceedAmount += each - 9.0; 
             } 
             else
             {
@@ -133,14 +133,42 @@ void getMealFees(struct Trip* tripPointer)
             }
 
             // lunch
+            printf("Please enter the cost of the lunch: $");
+            scanf("%f",&each);
+            if(each > 12)
+            {
+                // when lunch fee exceed allowble
+                tripPointer->mealFee += each;
+                tripPointer->mealFeesAllowable += 12.0;
+                exceedAmount += each - 12.0; 
+            }
+            else
+            {
+                tripPointer->mealFeesAllowable += each; 
+                tripPointer->mealFees += each;
+            }
 
 
             // dinner
-        }
+            printf("Please enter the cost of the dinner: $");
+            scanf("%f", &each);
+            if(each > 16.0)
+            {
+                tripPointer->mealFee += each;
+                tripPointer->mealFeesAllowable += 16.0;
+                exceedAmount += each - 16.0; 
+            }
+            else 
+            {
+                tripPointer->mealFeesAllowable += each; 
+                tripPointer->mealFees += each;
+            }
 
 
-    }
+        } // end else
 
+        
+    } // for-loop iteration ends
 
 
 
