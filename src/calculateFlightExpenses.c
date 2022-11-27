@@ -62,7 +62,7 @@ void updateValues(){
 }
 
 
-int main(){
+int calculateFlightExpense(){
     //must update four variable
     // days spent on trip
     // time of departure
@@ -93,7 +93,7 @@ int main(){
     else {
         printf("error: invalid input detected.\n");
         printf("Please enter valid input again.\n\n");
-        main();
+        calculateFlightExpense();
         
     }
 
