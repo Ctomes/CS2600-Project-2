@@ -77,7 +77,7 @@ void getHotelFees(struct Trip* tripPoniter)
         // and so allowable is $90 which is max business can pay
         tripPoniter->hotelFees += feeEachDay; 
         tripPoniter->hotelFeesAllowable += 90.0;
-        exceedAmount += feeEachDay - 90.0; 
+        exceedAmount += (feeEachDay - 90.0); 
     }
     else
     {
@@ -124,7 +124,7 @@ void getMealFees(struct Trip* tripPointer)
                 // when breakfast fee exceed allowable
                 tripPointer->mealFees += each;
                 tripPointer->mealFeesAllowable += 9.0;
-                exceedAmount += each - 9.0; 
+                exceedAmount += (each - 9.0); 
             } 
             else
             {
@@ -140,7 +140,7 @@ void getMealFees(struct Trip* tripPointer)
                 // when lunch fee exceed allowble
                 tripPointer->mealFee += each;
                 tripPointer->mealFeesAllowable += 12.0;
-                exceedAmount += each - 12.0; 
+                exceedAmount += (each - 12.0); 
             }
             else
             {
@@ -156,7 +156,7 @@ void getMealFees(struct Trip* tripPointer)
             {
                 tripPointer->mealFee += each;
                 tripPointer->mealFeesAllowable += 16.0;
-                exceedAmount += each - 16.0; 
+                exceedAmount += (each - 16.0); 
             }
             else 
             {
