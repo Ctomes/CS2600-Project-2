@@ -1,4 +1,4 @@
-#include "trip.h"
+//#include "trip.h"
 
 // bundles total costs with reimbursed costs
 typedef struct allCosts

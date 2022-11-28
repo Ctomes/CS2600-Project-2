@@ -1,12 +1,15 @@
 #include "../header/trip.h"
-#include "../header/flightExpenses.h"
+#include "../header/flight_expenses.h"
 #include <stdio.h>
 
 // declare the struct
-struct flightExpenses flight;
+struct FlightExpenses flight;
 struct Trip trip;
+
+//please handle with pointers not globals.
+
 // this function will ask the user for input and then will return the user input
-int userInput(){
+int userInput(){//
     //this section will ask the user for number of days on trip;
     printf("how many days did you spend on the trip: ");
     scanf("%d",&flight.days);
@@ -54,15 +57,21 @@ int checkInput(int days, float arrival, float departure, float airfareCost){
 
 
 // this function will update the trip.h file values 
-void updateValues(){
+// this needs to be changed to handle the pointers not global variables. 
+void updateValues(struct Trip *tripPointer, struct FlightExpenses *flightPointer){
     trip.daysSpentOnTrip = flight.days;
     trip.timeOfDeparture = flight.departure;
     trip.timeOfArrival = flight.arrival;
     trip.airfare = flight.airfareCost;
+
 }
 
-
-int calculateFlightExpense(){
+/* COMMENT THIS NEEDS TO BE REWORKED. 
+    If i enter any bad input it breaks. word into a text etc.
+    you need to handle situations when i put garbage in the input 
+    string. You should flush the input and then immediatly prompt for good input not wait until end.
+    likewise,*/
+int calculateFlightExpenses(struct Trip *tripPointer){
     //must update four variable
     // days spent on trip
     // time of departure
@@ -88,17 +97,14 @@ int calculateFlightExpense(){
     printf("airfareCost is:%f\n",flight.airfareCost);
     if(checkInput(flight.days,flight.arrival,flight.departure,flight.airfareCost)==1){
         printf("good input");
-        updateValues();
+        updateValues(tripPointer, &flight);//likewise this needs to be changed to create a flight object and pass the pointer to update with vals.
     }
     else {
         printf("error: invalid input detected.\n");
         printf("Please enter valid input again.\n\n");
-        calculateFlightExpense();
+        calculateFlightExpenses(tripPointer);
         
     }
-
-    
-    
 
     return 0;
 }

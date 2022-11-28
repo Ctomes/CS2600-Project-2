@@ -3,6 +3,7 @@
 #include "../header/trip.h"
 #include "../header/car_expenses.h"
 
+
 // calls calculation functions for each vehicle type
 // all calculations done in cents to avoid floating point imprecisions
 int calculateCarExpenses(struct Trip *tripPointer)

@@ -92,6 +92,7 @@ Input Validation:
 #include <stdio.h>
 #include "../header/trip.h"
 #include "../header/car_expenses.h"
+#include "../header/flight_expenses.h"
 
 int main()
 {
@@ -107,12 +108,8 @@ int main()
     Ask for round trip airfare?
     int calculateFlightExpenses(struct trip trip); pass a struct trip to function; should validate above input and store it.
     */
-    //calculateFlightExpenses(tripPointer);
-    // simulate behavior:
-    tripPointer->daysSpentOnTrip = 4;
-    tripPointer->timeOfDeparture = 10.55;
-    tripPointer->timeOfArrival = 16.30;
-    tripPointer->airfare = 100.20;
+    printf("Running Calculate flight expenses:\n");
+    calculateFlightExpenses(tripPointer);
     /*
     PERSON 2.
     Ask for cost of car rentals?
@@ -123,6 +120,7 @@ int main()
     Taxi fees?
         only permit $10 per day.
     */
+    printf("Running Calculate car expenses:\n");
     calculateCarExpenses(tripPointer);
     // simulate behavior:
     //tripPointer->rentalCost = 0;
