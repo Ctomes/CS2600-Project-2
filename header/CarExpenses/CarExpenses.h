@@ -1,0 +1,15 @@
+#include "../trip.h"
+
+// bundles total costs with reimbursed costs
+typedef struct allCosts
+{
+    int total;
+    int allowed;
+} allCosts;
+
+float calculateCarExpenses(struct Trip *tripPointer);
+float getValidFloat(char msg[]);
+
+void privateCar(struct allCosts *costs);
+void taxi(struct allCosts *costs);
+void rental(struct allCosts *costs);
