@@ -24,11 +24,9 @@ typedef struct Trip
  //int calculateCarExpenses(struct Trip *tripPointer);
  int calculateConferenceExpenses(struct Trip *tripPointer);
  int calculateMealExpenses(struct Trip *trip);
- void displayToUser(struct Trip *tripPointer);
 // templates: [caused multiple definition errors]
 
 // int calculateConferenceExpenses(struct Trip *tripPointer) { return 0; }
  //int calculateMealExpenses(struct Trip *tripPointer) { return 0; }
- //void displayToUser(struct Trip *tripPointer) {}
  
 #endif

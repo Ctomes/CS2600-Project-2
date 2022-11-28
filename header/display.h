@@ -1,0 +1,1 @@
+void displayToUser(struct Trip *tripPointer);
