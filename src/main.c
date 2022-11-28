@@ -18,6 +18,7 @@ Input Validation:
 
 #include <stdio.h>
 #include "../header/trip.h"
+#include "../header/conferenceFee.h"
 
 int main()
 {
@@ -33,7 +34,7 @@ Ask user for time of departure on the first day of the trip AND time of arrival 
 Ask for round trip airfare?
 int calculateFlightExpenses(struct trip trip); pass a struct trip to function; should validate above input and store it. 
 */
-    calculateFlightExpenses(tripPointer);
+    //calculateFlightExpenses(tripPointer);
     //simulate behavior:
     tripPointer->daysSpentOnTrip=4;
     tripPointer->timeOfDeparture=10.55;
@@ -63,10 +64,15 @@ Hotel expenses?
     only permit 90$ per night for lodging.
 */
 calculateConferenceExpenses(tripPointer);
+    
+/*
     //simulate behavior:
     tripPointer->conferenceFees = 20;
     tripPointer->hotelFees = 360.99;
     tripPointer->mealFees = 25;
+*/
+
+
 /*
 Person 4.
 --------

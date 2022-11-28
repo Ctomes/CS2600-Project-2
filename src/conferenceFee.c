@@ -15,7 +15,7 @@
 
 
 // This struct is from dany's
-struct flightExpenses(){
+struct flightExpenses{
     int days;
     float arrival;
     float departure;
@@ -27,11 +27,11 @@ struct flightExpenses(){
 // global variables
 float exceedAmount = 0.0; 
 
-void calculateConferenceExpenses(struct Trip* tripPointer) 
+int calculateConferenceExpenses(struct Trip* tripPointer) 
 {
     // This function will calculate the total conference expenses
     // conference/seminar fee + hotel expenses
-    int days = tripPointer->daysSpentOnTrip
+    int days = tripPointer->daysSpentOnTrip;
 
 
     // assume business will pay conference fees.
@@ -47,6 +47,7 @@ void calculateConferenceExpenses(struct Trip* tripPointer)
         getMealFees(tripPointer);
     }
 
+    return 0;
 }
 
 void getConferenceFees(struct Trip* tripPointer)
@@ -54,13 +55,13 @@ void getConferenceFees(struct Trip* tripPointer)
     // This function will prompt and return the user input of conference fee
     // conference fee limit was not specified, Assume business will pay everything. 
     // So conferenceFee by employee is $0, all fees under business. 
-    double fee; 
+    float fee; 
     printf("Please enter conference fee: $"); 
     scanf("%f", &fee);
     tripPointer->conferenceFeesAllowable += fee; 
 }
 
-void getHotelFees(struct Trip* tripPoniter)
+void getHotelFees(struct Trip* tripPointer)
 {
     /* prompt the user numerOfDays times and get feeEachDay
        check the feeEachDay, if it exceed $90, exceedAmount = feeEachDay - 90 
@@ -75,8 +76,8 @@ void getHotelFees(struct Trip* tripPoniter)
         // hotelFees track total hotel fees
         // so amount employee pays added on to the exceedAmount
         // and so allowable is $90 which is max business can pay
-        tripPoniter->hotelFees += feeEachDay; 
-        tripPoniter->hotelFeesAllowable += 90.0;
+        tripPointer->hotelFees += feeEachDay; 
+        tripPointer->hotelFeesAllowable += 90.0;
         exceedAmount += (feeEachDay - 90.0); 
     }
     else
@@ -84,9 +85,10 @@ void getHotelFees(struct Trip* tripPoniter)
         // enter here when hotelFee is less than $90
         // so amount employee pay is none
         // and so allowable is the feeEachDay
-        tripPoniter->hotelFees += feeEachDay;
-        tripPoniter->hotelFeesAllowable += feeEachDay;
+        tripPointer->hotelFees += feeEachDay;
+        tripPointer->hotelFeesAllowable += feeEachDay;
     }
+
 
 
 }
@@ -107,7 +109,7 @@ void getMealFees(struct Trip* tripPointer)
         {
             // when it is first day
         }
-        else if(i == (flightInfo.days - 1))
+        else if(i == (flightInfo->days - 1))
         {
             // when it is last day
         }
@@ -138,7 +140,7 @@ void getMealFees(struct Trip* tripPointer)
             if(each > 12)
             {
                 // when lunch fee exceed allowble
-                tripPointer->mealFee += each;
+                tripPointer->mealFees += each;
                 tripPointer->mealFeesAllowable += 12.0;
                 exceedAmount += (each - 12.0); 
             }
@@ -154,7 +156,7 @@ void getMealFees(struct Trip* tripPointer)
             scanf("%f", &each);
             if(each > 16.0)
             {
-                tripPointer->mealFee += each;
+                tripPointer->mealFees += each;
                 tripPointer->mealFeesAllowable += 16.0;
                 exceedAmount += (each - 16.0); 
             }
