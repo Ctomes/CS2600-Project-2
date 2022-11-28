@@ -1,4 +1,4 @@
-#include "../trip.h"
+#include "trip.h"
 
 // bundles total costs with reimbursed costs
 typedef struct allCosts
@@ -7,7 +7,7 @@ typedef struct allCosts
     int allowed;
 } allCosts;
 
-float calculateCarExpenses(struct Trip *tripPointer);
+int calculateCarExpenses(struct Trip *tripPointer);
 float getValidFloat(char msg[]);
 
 void privateCar(struct allCosts *costs);

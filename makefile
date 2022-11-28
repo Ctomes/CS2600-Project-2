@@ -4,7 +4,7 @@ all: doc src header bin lib obj program
 #entry point for compilation. 
 #currently is basic since there are no dependencies.
 program:  
-	$(CC) -o bin/program src/main.c
+	$(CC) -o bin/program src/main.c src/car_expenses.c
 
 
 #generates the directories:

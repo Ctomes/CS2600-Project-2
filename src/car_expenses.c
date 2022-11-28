@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <string.h>
-#include "../trip.h"
-#include "CarExpenses.h"
+#include "../header/trip.h"
+#include "../header/car_expenses.h"
 
 // calls calculation functions for each vehicle type
 // all calculations done in cents to avoid floating point imprecisions
-float calculateCarExpenses(struct Trip *tripPointer)
+int calculateCarExpenses(struct Trip *tripPointer)
 {
     allCosts costs;
     costs.total = 0;
@@ -36,6 +36,8 @@ float calculateCarExpenses(struct Trip *tripPointer)
 
     tripPointer->allowedCarCost = costs.allowed / 100.0f;
     tripPointer->totalCarCost = costs.total / 100.0f;
+
+    return 0;
 }
 
 // re-prompts user with given message until nonnegative float given
@@ -46,7 +48,7 @@ float getValidFloat(char msg[])
 
     do
     {
-        printf(msg);
+        printf("%s",msg);
         goodScan = scanf("%f", &valid);
         fflush(stdin);
     } while (goodScan != 1 || valid < 0);
