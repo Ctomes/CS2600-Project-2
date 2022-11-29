@@ -33,7 +33,7 @@ void displayToUser(struct Trip* tripPointer);
 //templates: 
 int calculateFlightExpenses(struct Trip* tripPointer){return 0;}
 int calculateCarExpenses(struct Trip* tripPointer){return 0;}
-int calculateConferenceExpenses(struct Trip* tripPointer){return 0;}
-int calculateMealExpenses(struct Trip* tripPointer){return 0;}
+//int calculateConferenceExpenses(struct Trip* tripPointer){return 0;}
+//int calculateMealExpenses(struct Trip* tripPointer){return 0;}
 void displayToUser(struct Trip* tripPointer){}
 #endif
