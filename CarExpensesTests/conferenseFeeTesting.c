@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "../header/trip.h"
-#include "../header/conferenceFee.h"
+#include "../header/conference_fee.h"
 
 int main()
 {

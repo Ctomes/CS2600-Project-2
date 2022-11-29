@@ -22,8 +22,8 @@ typedef struct Trip
 
 // Declarations for funcs. (here?)
  //int calculateCarExpenses(struct Trip *tripPointer);
- int calculateConferenceExpenses(struct Trip *tripPointer);
- int calculateMealExpenses(struct Trip *trip);
+  //int calculateConferenceExpenses(struct Trip *tripPointer);
+ //int calculateMealExpenses(struct Trip *trip);
 // templates: [caused multiple definition errors]
 
 // int calculateConferenceExpenses(struct Trip *tripPointer) { return 0; }

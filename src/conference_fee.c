@@ -10,8 +10,11 @@
 */
 #include <stdio.h>
 #include "../header/trip.h" 
-#include "../header/conferenceFee.h"
+#include "../header/conference_fee.h"
 
+void allowableBreakfast(struct Trip* tripPointer, float breakfast);
+void allowableLunch(struct Trip* tripPointer, float lunch);
+void allowableDinner(struct Trip* tripPointer, float dinner);
 
 /*
 float checkInput()
