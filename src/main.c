@@ -93,6 +93,7 @@ Input Validation:
 #include "../header/trip.h"
 #include "../header/car_expenses.h"
 #include "../header/flight_expenses.h"
+#include "../header/display.h"
 
 int main()
 {
@@ -156,7 +157,7 @@ int main()
         The excess the businessperson must reimburse if there is any.
         The amount saved if the expenses were under total allowed.
     */
-    //displayToUser(tripPointer);
+    displayToUser(tripPointer);
 
     // showing a print:
     printf("Airfare: $%.02f\nDays spent on trip: %d \nDeparture: %.02f, Arrival: %.02f\n", trip.airfare, trip.daysSpentOnTrip, trip.timeOfDeparture, trip.timeOfArrival);
