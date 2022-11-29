@@ -37,7 +37,7 @@ int calculateFlightExpenses(struct trip trip); pass a struct trip to function; s
     //calculateFlightExpenses(tripPointer);
     //simulate behavior:
 
-    tripPointer->daysSpentOnTrip=4;
+    tripPointer->daysSpentOnTrip=3;
     tripPointer->timeOfDeparture=10.55;
     tripPointer->timeOfArrival=16.30;
     tripPointer->airfare = 100.20;

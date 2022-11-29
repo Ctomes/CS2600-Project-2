@@ -13,7 +13,7 @@
 #include "../header/conferenceFee.h"
 
 
-
+/*
 float checkInput()
 {
     float input;
@@ -29,6 +29,8 @@ float checkInput()
     }
 
 }
+*/
+
 
 int calculateConferenceExpenses(struct Trip* tripPointer) 
 {
@@ -50,7 +52,7 @@ int calculateConferenceExpenses(struct Trip* tripPointer)
         getMealFees(tripPointer,days);
     }
 
-    return 0;
+    return 1; // return 1 if everythings goes ok
 }
 
 void getConferenceFees(struct Trip* tripPointer)
@@ -59,8 +61,14 @@ void getConferenceFees(struct Trip* tripPointer)
     // conference fee limit was not specified, Assume business will pay everything. 
     // So conferenceFee by employee is $0, all fees under business. 
     float fee; 
-    printf("Please enter conference fee for day %d: $" , tripPointer->daysSpentOnTrip); 
-    fee = checkInput();
+    int validate = 0;
+
+    do {
+        printf("Please enter conference fee for day %d: $" , tripPointer->daysSpentOnTrip); 
+        validate = scanf("%f", &fee);
+        fflush(stdin);
+    } while ((validate != 1) || (validate == 0));
+    
     tripPointer->conferenceFeesAllowable += fee; 
 }
 
@@ -71,8 +79,15 @@ void getHotelFees(struct Trip* tripPointer)
 
     */
     float feeEachDay; 
-    printf("Please enter hotel fee of day %d: ", tripPointer->daysSpentOnTrip);
-    feeEachDay = checkInput();
+    int validate = 0;
+
+    do{
+        printf("Please enter hotel fee of day %d: ", tripPointer->daysSpentOnTrip);
+        validate = scanf("%f", &feeEachDay);
+        fflush(stdin);
+    } while((validate != 1) || (validate == 0));
+
+
     if(feeEachDay > 90.0)
     {
         // enter here when hotelFee is bigger than $90, 
@@ -103,17 +118,29 @@ void getMealFees(struct Trip* tripPointer, int totalDays)
     // days will be in base 1
 
     // variables
-    float exceedAmount, breakfast, lunch, dinner;
+    float breakfast, lunch, dinner;
+    int validate = 0; 
 
     // prompt the users and get the cost of each meal
-    printf("Please enter the cost of breakfast: $");
-    breakfast = checkInput();
-    printf("Please enter the cost of lunch: $");
-    lunch = checkInput();
-    printf("Please enter the cost of dinner: $");
-    dinner = checkInput();
+    do{
+        printf("Please enter the cost of breakfast: $");
+        validate = scanf("%f", &breakfast);
+        fflush(stdin);
+    } while ((validate != 1) || (validate == 0));
 
+    do{
+        validate = 0;
+        printf("Please enter the cost of lunch: $");
+        validate = scanf("%f", &lunch);
+        fflush(stdin);
+    } while ((validate != 1) || (validate == 0));
 
+    do{
+        validate = 0;
+        printf("Please enter the cost of dinner: $");
+        validate = scanf("%f", &dinner);
+        fflush(stdin);
+    } while ((validate != 1) || (validate == 0));
 
     // sort the cost into correct category
     if(tripPointer->daysSpentOnTrip == 0)
