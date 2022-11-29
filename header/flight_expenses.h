@@ -1,7 +1,7 @@
 int calculateFlightExpenses(struct Trip *tripPointer);
-struct FlightExpenses{
+typedef struct FlightExpenses{
     int days;
     float arrival;
     float departure;
     float airfareCost;
-};
+} FlightExpenses;
