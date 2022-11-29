@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "../../header/CarExpenses/CarExpenses.h"
+#include "../../header/car_expenses.h"
 #include "../../header/trip.h"
 
 allCosts createZeroCosts()
