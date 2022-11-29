@@ -11,22 +11,26 @@
 #include <stdio.h>
 #include "../header/trip.h" 
 #include "../header/conferenceFee.h"
-//#include "../header/flightExpenses.h"
-
-
-// This struct is from dany's
-struct flightExpenses{
-    int days;
-    float arrival;
-    float departure;
-    float airfareCost;
-};
-
 
 
 // global variables
 float exceedAmount = 0.0; 
 
+float checkInput()
+{
+    float input;
+    if(scanf("%f", &input) == 1)
+    {
+        return input;
+    }
+    else
+    {
+        printf("Please enter correct input: $");
+        fflush(stdin);
+        return checkInput();
+    }
+
+}
 
 int calculateConferenceExpenses(struct Trip* tripPointer) 
 {
@@ -58,7 +62,7 @@ void getConferenceFees(struct Trip* tripPointer)
     // So conferenceFee by employee is $0, all fees under business. 
     float fee; 
     printf("Please enter conference fee for day %d: $" , tripPointer->daysSpentOnTrip); 
-    scanf("%f", &fee);
+    fee = checkInput();
     tripPointer->conferenceFeesAllowable += fee; 
 }
 
@@ -70,7 +74,7 @@ void getHotelFees(struct Trip* tripPointer)
     */
     float feeEachDay; 
     printf("Please enter hotel fee of day %d: ", tripPointer->daysSpentOnTrip);
-    scanf("%f", &feeEachDay);
+    feeEachDay = checkInput();
     if(feeEachDay > 90.0)
     {
         // enter here when hotelFee is bigger than $90, 
@@ -105,11 +109,11 @@ void getMealFees(struct Trip* tripPointer, int totalDays)
 
     // prompt the users and get the cost of each meal
     printf("Please enter the cost of breakfast: $");
-    scanf("%f", &breakfast);
+    breakfast = checkInput();
     printf("Please enter the cost of lunch: $");
-    scanf("%f", &lunch);
+    lunch = checkInput();
     printf("Please enter the cost of dinner: $");
-    scanf("%f", &dinner);
+    dinner = checkInput();
 
 
 
