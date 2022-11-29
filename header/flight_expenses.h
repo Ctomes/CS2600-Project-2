@@ -5,4 +5,3 @@ typedef struct FlightExpenses{
     float departure;
     float airfareCost;
 } FlightExpenses;
-//struct FlightExpenses flight;
