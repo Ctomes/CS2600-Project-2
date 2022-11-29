@@ -117,20 +117,20 @@ void getMealFees(struct Trip* tripPointer)
     if(tripPointer->daysSpentOnTrip == 0)
     {
         // enter here when it is first day 
-        if(tripPointer->timeOfArrival < 7.0)
+        if(tripPointer->timeOfDeparture < 7.0)
         {
             allowableBreakfast(tripPointer, breakfast);
             allowableLunch(tripPointer,lunch);
             allowableDinner(tripPointer,dinner);
         }
-        else if((tripPointer->timeOfArrival > 7.0) && (tripPointer->timeOfArrival < 12.0))
+        else if((tripPointer->timeOfDeparture > 7.0) && (tripPointer->timeOfDeparture < 12.0))
         {
             tripPointer->mealFees += breakfast;
             exceedAmount += breakfast;
             allowableLunch(tripPointer,lunch);
             allowableDinner(tripPointer,dinner);
         }
-        else if((tripPointer->timeOfArrival > 12.0) && (tripPointer->timeOfArrival < 18.0))
+        else if((tripPointer->timeOfDeparture > 12.0) && (tripPointer->timeOfDeparture < 18.0))
         {
             tripPointer->mealFees += (breakfast + lunch);
             exceedAmount += (breakfast + lunch);
@@ -141,21 +141,41 @@ void getMealFees(struct Trip* tripPointer)
             tripPointer->mealFees += (breakfast + lunch + dinner);
             exceedAmount += (breakfast + lunch + dinner);
         }
-
-
     } // end if
     else if((tripPointer->daysSpentOnTrip + 1) == totalDays)
     {
         // enter here when it is last day
-
-
+        if(tripPointer->timeOfArrival > 19.0)
+        {
+            allowableBreakfast(tripPointer, breakfast);
+            allowableLunch(tripPointer,lunch);
+            allowableDinner(tripPointer,dinner);
+        }
+        else if((tripPointer->timeOfArrival > 13.0) && (tripPointer->timeOfArrival < 19.0))
+        {
+            allowableBreakfast(tripPointer, breakfast);
+            allowableLunch(tripPointer,lunch);  
+            tripPointer->mealFees += dinner;
+            exceedAmount += dinner; 
+        }
+        else if((tripPointer->timeOfArrival > 8.0) && (tripPointer->timeOfArrival < 13.0))
+        {
+            allowableBreakfast(tripPointer, breakfast);
+            tripPointer->mealFees += (dinner + lunch);
+            exceedAmount += (dinner + lunch); 
+        }
+        else 
+        {
+            tripPointer->mealFees += (dinner + lunch + breakfast);
+            exceedAmount += (dinner + lunch + breakfast); 
+        }
     } // end else-if
     else 
     {
-        //enter there when it is not first or last day
-
-        
-
+        //enter here when it is not first or last day
+        allowableBreakfast(tripPointer, breakfast);
+        allowableLunch(tripPointer,lunch);
+        allowableDinner(tripPointer,dinner);
     } // end else
 
 }
