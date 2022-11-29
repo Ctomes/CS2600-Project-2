@@ -18,12 +18,12 @@ int main()
     calculateConferenceExpenses(tripPointer);
 
     printf("This is called after calculateConferenceExpenses is called \n\n");
-    printf("conference fees $%.2f\n", &tripPointer->conferenceFees);
-    printf("conference fees allowable $%.2f\n", &tripPointer->conferenceFeesAllowable);
-    printf("hotel fees $%.2f\n", &tripPointer->hotelFees);
-    printf("hotel fees allowable $%.2f\n", &tripPointer->hotelFeesAllowable);
-    printf("meal fees $%.2f\n", &tripPointer->mealFees);
-    printf("meal fees allowable fees $%.2f\n", &tripPointer->mealFeesAllowable);
+    printf("conference fees $%.2f\n", tripPointer->conferenceFees);
+    printf("conference fees allowable $%.2f\n", tripPointer->conferenceFeesAllowable);
+    printf("hotel fees $%.2f\n", tripPointer->hotelFees);
+    printf("hotel fees allowable $%.2f\n", tripPointer->hotelFeesAllowable);
+    printf("meal fees $%.2f\n", tripPointer->mealFees);
+    printf("meal fees allowable fees $%.2f\n\n", tripPointer->mealFeesAllowable);
 
     printf("Airfare: $%.02f\nDays spent on trip: %d \nDeparture: %.02f, Arrival: %.02f\n",trip.airfare,trip.daysSpentOnTrip,trip.timeOfDeparture, trip.timeOfArrival);
     return 0;

@@ -39,8 +39,11 @@ int calculateConferenceExpenses(struct Trip* tripPointer)
     int days = tripPointer->daysSpentOnTrip;
 
 
-    // assume business will pay conference fees.
+    // zero the variables before begin
     tripPointer->conferenceFees = 0; 
+    tripPointer->conferenceFeesAllowable = 0;
+    tripPointer->hotelFees = 0; 
+    tripPointer->hotelFeesAllowable = 0; 
 
 
     // loop while daysSpentOnTrip
@@ -69,6 +72,7 @@ void getConferenceFees(struct Trip* tripPointer)
         fflush(stdin);
     } while ((validate != 1) || (validate == 0));
     
+    tripPointer->conferenceFees += fee;
     tripPointer->conferenceFeesAllowable += fee; 
 }
 
