@@ -26,6 +26,7 @@ struct flightExpenses{
 
 // global variables
 float exceedAmount = 0.0; 
+int totalDays = tripPointer->daysSpentOnTrip;
 
 int calculateConferenceExpenses(struct Trip* tripPointer) 
 {
@@ -56,7 +57,7 @@ void getConferenceFees(struct Trip* tripPointer)
     // conference fee limit was not specified, Assume business will pay everything. 
     // So conferenceFee by employee is $0, all fees under business. 
     float fee; 
-    printf("Please enter conference fee: $"); 
+    printf("Please enter conference fee for day %d: $" , tripPointer->daysSpentOnTrip); 
     scanf("%f", &fee);
     tripPointer->conferenceFeesAllowable += fee; 
 }
@@ -68,7 +69,7 @@ void getHotelFees(struct Trip* tripPointer)
 
     */
     float feeEachDay; 
-    printf("Please enter hotel fee of day%d: ", tripPointer->daysSpentOnTrip);
+    printf("Please enter hotel fee of day %d: ", tripPointer->daysSpentOnTrip);
     scanf("%f", &feeEachDay);
     if(feeEachDay > 90.0)
     {
@@ -100,78 +101,108 @@ void getMealFees(struct Trip* tripPointer)
     // days will be in base 1
 
     // variables
-    float exceedAmount, each;
-    struct flightExpenses *flightInfo;
+    float exceedAmount, breakfast, lunch, dinner;
 
-    for(int i = 0; i < flightInfo->days; i++)
+    // prompt the users and get the cost of each meal
+    printf("Please enter the cost of breakfast: $");
+    scanf("%f", &breakfast);
+    printf("Please enter the cost of lunch: $");
+    scanf("%f", &lunch);
+    printf("Please enter the cost of dinner: $");
+    scanf("%f", &dinner);
+
+
+
+    // sort the cost into correct category
+    if(tripPointer->daysSpentOnTrip == 0)
     {
-        if(i == 0)
+        // enter here when it is first day 
+        if(tripPointer->timeOfArrival < 7.0)
         {
-            // when it is first day
+            allowableBreakfast(tripPointer, breakfast);
+            allowableLunch(tripPointer,lunch);
+            allowableDinner(tripPointer,dinner);
         }
-        else if(i == (flightInfo->days - 1))
+        else if((tripPointer->timeOfArrival > 7.0) && (tripPointer->timeOfArrival < 12.0))
         {
-            // when it is last day
+            tripPointer->mealFees += breakfast;
+            exceedAmount += breakfast;
+            allowableLunch(tripPointer,lunch);
+            allowableDinner(tripPointer,dinner);
+        }
+        else if((tripPointer->timeOfArrival > 12.0) && (tripPointer->timeOfArrival < 18.0))
+        {
+            tripPointer->mealFees += (breakfast + lunch);
+            exceedAmount += (breakfast + lunch);
+            allowableDinner(tripPointer,dinner);
         }
         else
         {
-            // when it is not first or last day
-            // prompt the user for breakfast, lunch, and dinner 
-            
-            // breakfast
-            printf("Please enter the cost of breakfast: $");
-            scanf("%f", &each);
-            if(each > 9.0)
-            {
-                // when breakfast fee exceed allowable
-                tripPointer->mealFees += each;
-                tripPointer->mealFeesAllowable += 9.0;
-                exceedAmount += (each - 9.0); 
-            } 
-            else
-            {
-                tripPointer->mealFeesAllowable += each; 
-                tripPointer->mealFees += each; 
-            }
-
-            // lunch
-            printf("Please enter the cost of the lunch: $");
-            scanf("%f",&each);
-            if(each > 12)
-            {
-                // when lunch fee exceed allowble
-                tripPointer->mealFees += each;
-                tripPointer->mealFeesAllowable += 12.0;
-                exceedAmount += (each - 12.0); 
-            }
-            else
-            {
-                tripPointer->mealFeesAllowable += each; 
-                tripPointer->mealFees += each;
-            }
+            tripPointer->mealFees += (breakfast + lunch + dinner);
+            exceedAmount += (breakfast + lunch + dinner);
+        }
 
 
-            // dinner
-            printf("Please enter the cost of the dinner: $");
-            scanf("%f", &each);
-            if(each > 16.0)
-            {
-                tripPointer->mealFees += each;
-                tripPointer->mealFeesAllowable += 16.0;
-                exceedAmount += (each - 16.0); 
-            }
-            else 
-            {
-                tripPointer->mealFeesAllowable += each; 
-                tripPointer->mealFees += each;
-            }
+    } // end if
+    else if((tripPointer->daysSpentOnTrip + 1) == totalDays)
+    {
+        // enter here when it is last day
 
 
-        } // end else
+    } // end else-if
+    else 
+    {
+        //enter there when it is not first or last day
 
         
-    } // for-loop iteration ends
 
+    } // end else
 
+}
 
+void allowableBreakfast(struct Trip* tripPointer, float breakfast)
+{
+    if(breakfast > 9.0)
+    {
+        // when breakfast fee exceed allowable
+        tripPointer->mealFees += breakfast;
+        tripPointer->mealFeesAllowable += 9.0;
+        exceedAmount += (breakfast - 9.0); 
+    } 
+    else
+    {
+        tripPointer->mealFeesAllowable += breakfast; 
+        tripPointer->mealFees += breakfast; 
+    }
+}
+
+void allowableLunch(struct Trip* tripPointer, float lunch)
+{
+    if(lunch > 12)
+    {
+        // when lunch fee exceed allowble
+        tripPointer->mealFees += lunch;
+        tripPointer->mealFeesAllowable += 12.0;
+        exceedAmount += (lunch - 12.0); 
+    }
+    else
+    {
+        tripPointer->mealFeesAllowable += lunch; 
+        tripPointer->mealFees += lunch;
+    }
+}
+
+void allowableDinner(struct Trip* tripPointer, float dinner)
+{
+    if(dinner > 16.0)
+    {
+        tripPointer->mealFees += dinner;
+        tripPointer->mealFeesAllowable += 16.0;
+        exceedAmount += (dinner - 16.0); 
+    }
+    else 
+    {
+        tripPointer->mealFeesAllowable += dinner; 
+        tripPointer->mealFees += dinner;
+    }
 }

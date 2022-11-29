@@ -36,10 +36,13 @@ int calculateFlightExpenses(struct trip trip); pass a struct trip to function; s
 */
     //calculateFlightExpenses(tripPointer);
     //simulate behavior:
+
     tripPointer->daysSpentOnTrip=4;
     tripPointer->timeOfDeparture=10.55;
     tripPointer->timeOfArrival=16.30;
     tripPointer->airfare = 100.20;
+
+
 /*
 PERSON 2.
 Ask for cost of car rentals?
@@ -50,12 +53,18 @@ Parking fees?
 Taxi fees?
     only permit $10 per day.
 */
+
+/*
 calculateCarExpenses(tripPointer);
     //simulate behavior:
     tripPointer->rentalCost = 0;
     tripPointer->milesDrivenInPrivateCar = 10;
     tripPointer->parkingFees = 15;
     tripPointer->taxiFees =0;
+
+*/
+
+
 /*
 Person 3.
 Conference/Seminar registration fees?
@@ -82,7 +91,7 @@ Permitted meals:
     Arrival day:   Breakfast before 8am | Lunch before 1pm. | Dinner before 7pm "Time of Arrival"
     cost of allowable meals: $9 for breakfast | $12 for lunch | $16 for dinner.
 */
-calculateMealExpenses(tripPointer);
+//calculateMealExpenses(tripPointer);
 /*
 Display to User:
     Total expenses.
@@ -90,7 +99,9 @@ Display to User:
     The excess the businessperson must reimburse if there is any.
     The amount saved if the expenses were under total allowed.
 */
-displayToUser(tripPointer);
+
+
+//displayToUser(tripPointer);
 
     //showing a print:
     printf("Airfare: $%.02f\nDays spent on trip: %d \nDeparture: %.02f, Arrival: %.02f\n",trip.airfare,trip.daysSpentOnTrip,trip.timeOfDeparture, trip.timeOfArrival);
