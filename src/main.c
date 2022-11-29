@@ -139,6 +139,7 @@ int main()
     // simulate behavior:
     tripPointer->conferenceFees = 20;
     tripPointer->hotelFees = 360.99;
+    tripPointer->hotelFeesAllowable = 10;
     tripPointer->mealFees = 25;
     /*
     Person 4.
