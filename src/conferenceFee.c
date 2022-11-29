@@ -19,14 +19,8 @@ float exceedAmount = 0.0;
 float checkInput()
 {
     float input;
-    if(scanf("%f", &input) == 1)
+    if((scanf("%f", &input) == 1) && (input > 0))
     {
-        if(input < 0)
-        {
-            printf("Please enter positive number: $");
-            fflush(stdin);
-            return checkInput();
-        }
         return input;
     }
     else
