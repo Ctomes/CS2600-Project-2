@@ -16,23 +16,7 @@ void allowableBreakfast(struct Trip* tripPointer, float breakfast);
 void allowableLunch(struct Trip* tripPointer, float lunch);
 void allowableDinner(struct Trip* tripPointer, float dinner);
 
-/*
-float checkInput()
-{
-    float input;
-    if((scanf("%f", &input) == 1) && (input > 0))
-    {
-        return input;
-    }
-    else
-    {
-        printf("Please enter correct input: $");
-        fflush(stdin);
-        return checkInput();
-    }
 
-}
-*/
 
 
 int calculateConferenceExpenses(struct Trip* tripPointer) 
