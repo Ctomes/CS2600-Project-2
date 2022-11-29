@@ -13,8 +13,6 @@
 #include "../header/conferenceFee.h"
 
 
-// global variables
-float exceedAmount = 0.0; 
 
 float checkInput()
 {
@@ -83,7 +81,7 @@ void getHotelFees(struct Trip* tripPointer)
         // and so allowable is $90 which is max business can pay
         tripPointer->hotelFees += feeEachDay; 
         tripPointer->hotelFeesAllowable += 90.0;
-        exceedAmount += (feeEachDay - 90.0); 
+
     }
     else
     {
@@ -130,20 +128,18 @@ void getMealFees(struct Trip* tripPointer, int totalDays)
         else if((tripPointer->timeOfDeparture > 7.0) && (tripPointer->timeOfDeparture < 12.0))
         {
             tripPointer->mealFees += breakfast;
-            exceedAmount += breakfast;
             allowableLunch(tripPointer,lunch);
             allowableDinner(tripPointer,dinner);
         }
         else if((tripPointer->timeOfDeparture > 12.0) && (tripPointer->timeOfDeparture < 18.0))
         {
             tripPointer->mealFees += (breakfast + lunch);
-            exceedAmount += (breakfast + lunch);
             allowableDinner(tripPointer,dinner);
         }
         else
         {
             tripPointer->mealFees += (breakfast + lunch + dinner);
-            exceedAmount += (breakfast + lunch + dinner);
+
         }
     } // end if
     else if((tripPointer->daysSpentOnTrip + 1) == totalDays)
@@ -160,18 +156,18 @@ void getMealFees(struct Trip* tripPointer, int totalDays)
             allowableBreakfast(tripPointer, breakfast);
             allowableLunch(tripPointer,lunch);  
             tripPointer->mealFees += dinner;
-            exceedAmount += dinner; 
+
         }
         else if((tripPointer->timeOfArrival > 8.0) && (tripPointer->timeOfArrival < 13.0))
         {
             allowableBreakfast(tripPointer, breakfast);
             tripPointer->mealFees += (dinner + lunch);
-            exceedAmount += (dinner + lunch); 
+
         }
         else 
         {
             tripPointer->mealFees += (dinner + lunch + breakfast);
-            exceedAmount += (dinner + lunch + breakfast); 
+
         }
     } // end else-if
     else 
@@ -191,7 +187,7 @@ void allowableBreakfast(struct Trip* tripPointer, float breakfast)
         // when breakfast fee exceed allowable
         tripPointer->mealFees += breakfast;
         tripPointer->mealFeesAllowable += 9.0;
-        exceedAmount += (breakfast - 9.0); 
+
     } 
     else
     {
@@ -207,7 +203,7 @@ void allowableLunch(struct Trip* tripPointer, float lunch)
         // when lunch fee exceed allowble
         tripPointer->mealFees += lunch;
         tripPointer->mealFeesAllowable += 12.0;
-        exceedAmount += (lunch - 12.0); 
+
     }
     else
     {
@@ -222,7 +218,7 @@ void allowableDinner(struct Trip* tripPointer, float dinner)
     {
         tripPointer->mealFees += dinner;
         tripPointer->mealFeesAllowable += 16.0;
-        exceedAmount += (dinner - 16.0); 
+
     }
     else 
     {
