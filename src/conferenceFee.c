@@ -26,7 +26,7 @@ struct flightExpenses{
 
 // global variables
 float exceedAmount = 0.0; 
-int totalDays = tripPointer->daysSpentOnTrip;
+
 
 int calculateConferenceExpenses(struct Trip* tripPointer) 
 {
@@ -45,7 +45,7 @@ int calculateConferenceExpenses(struct Trip* tripPointer)
         tripPointer->daysSpentOnTrip = i;
         getConferenceFees(tripPointer);
         getHotelFees(tripPointer);
-        getMealFees(tripPointer);
+        getMealFees(tripPointer,days);
     }
 
     return 0;
@@ -94,7 +94,7 @@ void getHotelFees(struct Trip* tripPointer)
 
 }
 
-void getMealFees(struct Trip* tripPointer)
+void getMealFees(struct Trip* tripPointer, int totalDays)
 {
     // This function will use struct flightExpenses.h from dany's but will not modify
 
