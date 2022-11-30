@@ -7,4 +7,4 @@ int calculateConferenceExpenses(struct Trip *tripPointer);
 
 void getConferenceFees(struct Trip* tripPointer);
 void getHotelFees(struct Trip* tripPointer);
-void getMealFees(struct Trip* tripPointer,int totalDays);
+void getMealFees(struct Trip* tripPointer);
