@@ -9,7 +9,7 @@ typedef struct allCosts
 
 int calculateCarExpenses(struct Trip *tripPointer);
 float getValidFloat(char msg[]);
-bool getValidYesNo(char msg[]);
+int getValidYesNo(char msg[]);
 
 void privateCar(struct allCosts *costs);
 void taxi(struct allCosts *costs);

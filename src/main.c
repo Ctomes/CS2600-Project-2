@@ -15,9 +15,11 @@ Calculate and Display total travel expenses.
 #include "../header/display.h"
 #include "../header/conference_fee.h"
 
+
+
 int main()
 {
-    printf("This program will impliment a trip calcular for Project 2 CS2600\n");
+    printf("hi""This program will impliment a trip calcular for Project 2 CS2600\n");
     Trip trip;
     Trip *tripPointer = &trip;
     /*
@@ -54,7 +56,8 @@ int main()
         Arrival day:   Breakfast before 8am | Lunch before 1pm. | Dinner before 7pm "Time of Arrival"
         cost of allowable meals: $9 for breakfast | $12 for lunch | $16 for dinner.
     */
-       printf("Running COnference and meal expenses:\n");
+
+       printf("Running Conference and meal expenses:\n");
        calculateConferenceExpenses(tripPointer);
     /*
         Person 4.

@@ -43,14 +43,14 @@ int calculateCarExpenses(struct Trip *tripPointer)
 }
 
 // re-prompts user with given message until either yes or no is entered
-bool getValidYesNo(char msg[])
+int getValidYesNo(char msg[])
 {
     char response[4];
     int goodScan;
 
     do
     {
-        printf(msg);
+        puts(msg);
         goodScan = scanf("%s", response);
         fflush(stdin);
     } while (goodScan != 1 || (strcasecmp(response, "yes") && strcasecmp(response, "no")));
@@ -73,7 +73,7 @@ float getValidFloat(char msg[])
 
     do
     {
-        printf(msg);
+        puts(msg);
         goodScan = scanf("%f", &valid);
         fflush(stdin);
     } while (goodScan != 1 || valid < 0);
