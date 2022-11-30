@@ -1,3 +1,4 @@
+#include <stdbool.h>
 #include <stdio.h>
 #include "../../header/car_expenses.h"
 #include "../../header/trip.h"
@@ -17,6 +18,20 @@ void getValidFloatTest()
 
     float validated = getValidFloat("Enter a float: ");
     printf("\nYou entered %f.\n\n", validated);
+}
+
+void getValidYesNoTest()
+{
+    printf("You'll be asked to re-enter your response until you enter 'yes' or 'no'.\n\n");
+
+    if (getValidYesNo("Enter 'yes' or 'no': "))
+    {
+        printf("\nYou entered 'yes'.\n\n");
+    }
+    else
+    {
+        printf("\nYou entered 'no'.\n\n");
+    }
 }
 
 void privateCarTest()
@@ -52,6 +67,7 @@ void rentalTest()
 void calculateCarExpensesTest()
 {
     Trip trp;
+    trp.daysSpentOnTrip = 5;
     printf("The central calculation function should use input validation and correctly sum the costs of all vehicle types of the trip.\n");
     float total = calculateCarExpenses(&trp);
 
@@ -60,11 +76,12 @@ void calculateCarExpensesTest()
 
 int main()
 {
+    calculateCarExpensesTest();
     getValidFloatTest();
+    getValidYesNoTest();
     privateCarTest();
     taxiTest();
     rentalTest();
-    calculateCarExpensesTest();
 
     return 0;
 }
