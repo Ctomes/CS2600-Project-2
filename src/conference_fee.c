@@ -82,26 +82,8 @@ void getHotelFees(struct Trip* tripPointer)
         fflush(stdin);
     } while((validate != 1) || (validate == 0));
 
-
-    if(feeEachDay > 90.0)
-    {
-        // enter here when hotelFee is bigger than $90, 
-        // hotelFees track total hotel fees
-        // so amount employee pays added on to the exceedAmount
-        // and so allowable is $90 which is max business can pay
-        tripPointer->hotelFees += feeEachDay; 
-        tripPointer->hotelFeesAllowable += 90.0;
-
-    }
-    else
-    {
-        // enter here when hotelFee is less than $90
-        // so amount employee pay is none
-        // and so allowable is the feeEachDay
-        tripPointer->hotelFees += feeEachDay;
-        tripPointer->hotelFeesAllowable += feeEachDay;
-    }
-
+    tripPointer->hotelFeesAllowable += 90.0;
+    tripPointer->hotelFees += feeEachDay;
 
 
 }
