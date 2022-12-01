@@ -58,19 +58,20 @@ void airfareCost(struct FlightExpenses *flight){
 
 
 
-/* COMMENT THIS NEEDS TO BE REWORKED. 
-    If i enter any bad input it breaks. word into a text etc.
-    you need to handle situations when i put garbage in the input 
-    string. You should flush the input and then immediatly prompt for good input not wait until end.
-    likewise,*/
+
 int calculateFlightExpenses(struct Trip *tripPointer){
     struct FlightExpenses flight;
     daysSpent(&flight);
-    arrivalTime(&flight);
     departingTime(&flight);
+    arrivalTime(&flight);
     airfareCost(&flight);
-
     
+    do
+    {
+        printf("departing time cannot be ahead of arrival time, please reenter values");
+        departingTime(&flight);
+        arrivalTime(&flight);
+    } while (flight.days == 1 && flight.arrival < flight.departure);
     
     printf("days is:%d\n",flight.days);
     printf("arrival is:%f\n",flight.arrival);
