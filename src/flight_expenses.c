@@ -64,7 +64,6 @@ int calculateFlightExpenses(struct Trip *tripPointer){
     daysSpent(&flight);
     departingTime(&flight);
     arrivalTime(&flight);
-    airfareCost(&flight);
     int days = flight.days;
     if (days == 1)
     {
@@ -76,7 +75,7 @@ int calculateFlightExpenses(struct Trip *tripPointer){
             arrivalTime(&flight);
         } while (flight.arrival < flight.departure) ;
     }
-
+    airfareCost(&flight);
     
     printf("days is:%d\n",flight.days);
     printf("arrival is:%f\n",flight.arrival);
