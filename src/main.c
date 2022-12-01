@@ -19,7 +19,7 @@ Calculate and Display total travel expenses.
 
 int main()
 {
-    printf("hi""This program will impliment a trip calcular for Project 2 CS2600\n");
+    printf("This program will impliment a trip calcular for Project 2 CS2600\n");
     Trip trip;
     Trip *tripPointer = &trip;
     /*
