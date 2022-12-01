@@ -64,14 +64,18 @@ int calculateFlightExpenses(struct Trip *tripPointer){
     daysSpent(&flight);
     departingTime(&flight);
     arrivalTime(&flight);
-    airfareCost(&flight);
-    
-    do
+    int days = flight.days;
+    if (days == 1)
     {
-        printf("departing time cannot be ahead of arrival time, please reenter values");
-        departingTime(&flight);
-        arrivalTime(&flight);
-    } while (flight.days == 1 && flight.arrival < flight.departure);
+        do
+        {
+            printf("departing time cannot be ahead of arrival time, please reenter values");
+            printf("%d",days);
+            departingTime(&flight);
+            arrivalTime(&flight);
+        } while (flight.arrival < flight.departure) ;
+    }
+    airfareCost(&flight);
     
     printf("days is:%d\n",flight.days);
     printf("arrival is:%f\n",flight.arrival);
